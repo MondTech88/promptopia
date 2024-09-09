@@ -1,9 +1,9 @@
 "use client";
 import Form from "@components/Form";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 
-const EditPrompt = () => {
+const Edit = () => {
   const [submitting, setSubmitting] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [tag, setTag] = useState("");
@@ -53,5 +53,11 @@ const EditPrompt = () => {
     </div>
   );
 };
+
+const EditPrompt = () => (
+  <Suspense>
+    <Edit />
+  </Suspense>
+);
 
 export default EditPrompt;
